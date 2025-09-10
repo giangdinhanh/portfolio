@@ -40,31 +40,40 @@
     nav ul ul li {
       margin: 5px 0;
     }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body>
   <!-- Sticky Navigation Bar -->
   <nav class="bg-black bg-opacity-70 p-4 flex justify-center sticky top-0 z-50 shadow-lg">
     <ul class="flex space-x-8 relative">
-      <li><a href="#home" class="hover:text-yellow-300">Home</a></li>
+      <li><a href="#" onclick="showSection('home')" class="hover:text-yellow-300">Home</a></li>
       <li class="relative group">
-        <a href="#powerbi" class="hover:text-yellow-300">Power BI</a>
+        <a href="#" class="hover:text-yellow-300">Power BI</a>
         <ul class="absolute hidden group-hover:block mt-2">
-          <li><a href="#lifestyle" class="block px-4 py-2 hover:text-yellow-300">Lifestyle factors</a></li>
-          <li><a href="#videogame" class="block px-4 py-2 hover:text-yellow-300">Video game sales</a></li>
+          <li><a href="#" onclick="showSection('lifestyle')" class="block px-4 py-2 hover:text-yellow-300">Lifestyle factors</a></li>
+          <li><a href="#" onclick="showSection('videogame')" class="block px-4 py-2 hover:text-yellow-300">Video game sales</a></li>
         </ul>
       </li>
       <li class="relative group">
-        <a href="#looker" class="hover:text-yellow-300">Looker Studio</a>
+        <a href="#" class="hover:text-yellow-300">Looker Studio</a>
         <ul class="absolute hidden group-hover:block mt-2">
-          <li><a href="#refugee" class="block px-4 py-2 hover:text-yellow-300">Europe Refugee Crisis</a></li>
+          <li><a href="#" onclick="showSection('refugee')" class="block px-4 py-2 hover:text-yellow-300">Europe Refugee Crisis</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
   <!-- Home -->
-  <section id="home" class="overlay text-center flex flex-col items-center justify-center">
+  <section id="home" class="overlay active text-center flex flex-col items-center justify-center">
     <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
     <p class="text-lg">A collection of my data interactive dashboards/ visualization used in SAIT's projects.</p>
   </section>
@@ -95,5 +104,12 @@
       Dataset source: <a href="https://learn.sait.ca/d2l/le/content/770793/viewContent/18998381/View" target="_blank" class="underline">Data source</a>
     </p>
   </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
 </body>
 </html>
