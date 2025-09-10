@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #3b0a45; /* dark purple text */
+      color: #3b0a45; /* dark purple */
       background: url("https://i.imgur.com/pTEacYX.png") no-repeat center center fixed;
       background-size: cover;
     }
@@ -26,12 +26,7 @@
       border: none;
       border-radius: 10px;
     }
-    section {
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
+    .hidden { display: none; }
     .active-tab {
       border-bottom: 2px solid yellow;
     }
@@ -48,55 +43,64 @@
     </ul>
   </nav>
 
-  <!-- Home Page -->
-  <section id="home" class="overlay active text-center flex flex-col items-center justify-center">
-    <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
-    <p class="text-lg">A collection of my interactive dashboards and visualizations built for SAIT's projects.</p>
-  </section>
-
-  <!-- Power BI Dashboard 01 -->
-  <section id="lifestyle" class="overlay">
-    <h2 class="text-3xl font-bold mb-2">Power BI - Dashboard 01</h2>
-    <p class="mb-4 text-lg">Lifestyle factors and their impact on students</p>
-    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
-    <p class="mt-2 text-sm">
-      Dataset source: <a href="https://www.kaggle.com/datasets/charlottebennett1234/lifestyle-factors-and-their-impact-on-students/data" target="_blank" class="underline">Data source</a>
-    </p>
-  </section>
-
-  <!-- Power BI Dashboard 02 -->
-  <section id="videogame" class="overlay">
-    <h2 class="text-3xl font-bold mb-2">Power BI - Dashboard 02</h2>
-    <p class="mb-4 text-lg">Video game sales</p>
-    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
-    <p class="mt-2 text-sm">
-      Dataset source: <a href="https://www.kaggle.com/datasets/anandshaw2001/video-game-sales/data" target="_blank" class="underline">Data source</a>
-    </p>
-  </section>
-
-  <!-- Looker Studio -->
-  <section id="refugee" class="overlay">
-    <h2 class="text-3xl font-bold mb-2">Looker Studio</h2>
-    <p class="mb-4 text-lg">Europe Refugee Crisis</p>
-    <iframe src="https://lookerstudio.google.com/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60" allowfullscreen></iframe>
-    <p class="mt-2 text-sm">
-      Dataset source: <a href="https://learn.sait.ca/d2l/le/content/770793/viewContent/18998381/View" target="_blank" class="underline">Data source</a>
-    </p>
-  </section>
+  <!-- Sections -->
+  <main id="content">
+    <section id="home" class="overlay">
+      <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
+      <p class="text-lg">A collection of my interactive dashboards and visualizations built for SAIT's projects.</p>
+    </section>
+  </main>
 
   <script>
+    const sections = {
+      home: `
+        <section id="home" class="overlay">
+          <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
+          <p class="text-lg">A collection of my interactive dashboards and visualizations built for SAIT's projects.</p>
+        </section>
+      `,
+      lifestyle: `
+        <section id="lifestyle" class="overlay">
+          <h2 class="text-3xl font-bold mb-2">Power BI - Dashboard 01</h2>
+          <p class="mb-4 text-lg">Lifestyle factors and their impact on students</p>
+          <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
+          <p class="mt-2 text-sm">
+            Dataset information: <a href="https://www.kaggle.com/datasets/charlottebennett1234/lifestyle-factors-and-their-impact-on-students/data" target="_blank" class="underline">kaggle.com</a>
+          </p>
+        </section>
+      `,
+      videogame: `
+        <section id="videogame" class="overlay">
+          <h2 class="text-3xl font-bold mb-2">Power BI - Dashboard 02</h2>
+          <p class="mb-4 text-lg">Video game sales</p>
+          <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
+          <p class="mt-2 text-sm">
+            Dataset information: <a href="https://www.kaggle.com/datasets/anandshaw2001/video-game-sales/data" target="_blank" class="underline">kaggle.com</a>
+          </p>
+        </section>
+      `,
+      refugee: `
+        <section id="refugee" class="overlay">
+          <h2 class="text-3xl font-bold mb-2">Looker Studio</h2>
+          <p class="mb-4 text-lg">Europe Refugee Crisis</p>
+          <iframe src="https://lookerstudio.google.com/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60" allowfullscreen></iframe>
+          <p class="mt-2 text-sm">
+            Dataset information: <a href="https://ec.europa.eu/eurostat/web/migration-asylum/asylum/database" target="_blank" class="underline">ec.europa.eu</a>
+          </p>
+        </section>
+      `
+    };
+
     function showSection(id, element) {
-      // Hide all sections
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      // Show selected section
-      document.getElementById(id).classList.add("active");
+      // Swap content
+      document.getElementById("content").innerHTML = sections[id];
       // Reset tab highlight
       document.querySelectorAll("nav a").forEach(tab => tab.classList.remove("active-tab"));
       // Highlight active tab
       element.classList.add("active-tab");
     }
 
-    // Highlight "Home" on load
+    // Default load Home
     document.getElementById("tab-home").classList.add("active-tab");
   </script>
 </body>
