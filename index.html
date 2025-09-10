@@ -1,82 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Dashboard Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinh Anh Giang's Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url("https://source.unsplash.com/1600x900/?data,technology") no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background: rgba(255, 255, 255, 0.3);
+      margin: 5px;
+      padding: 20px;
+      border-radius: 12px;
+      min-height: calc(100vh - 10px);
+    }
+    iframe {
+      aspect-ratio: 16/9;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+    nav ul li:hover > ul {
+      display: block;
+    }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background: rgba(0,0,0,0.7);
+      list-style: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    nav ul ul li {
+      margin: 5px 0;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body>
+  <!-- Navigation Bar -->
+  <nav class="bg-black bg-opacity-70 p-4 flex justify-center">
+    <ul class="flex space-x-8 relative">
+      <li><a href="#home" class="hover:text-yellow-300">Home</a></li>
+      <li class="relative group">
+        <a href="#powerbi" class="hover:text-yellow-300">Power BI</a>
+        <ul class="absolute hidden group-hover:block mt-2">
+          <li><a href="#lifestyle" class="block px-4 py-2 hover:text-yellow-300">Lifestyle factors</a></li>
+          <li><a href="#videogame" class="block px-4 py-2 hover:text-yellow-300">Video game sales</a></li>
+        </ul>
+      </li>
+      <li class="relative group">
+        <a href="#looker" class="hover:text-yellow-300">Looker Studio</a>
+        <ul class="absolute hidden group-hover:block mt-2">
+          <li><a href="#refugee" class="block px-4 py-2 hover:text-yellow-300">Europe Refugee Crisis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-indigo-600">My Dashboards</h1>
-      <nav>
-        <a href="#" class="px-4 text-gray-700 hover:text-indigo-600">Home</a>
-        <a href="#about" class="px-4 text-gray-700 hover:text-indigo-600">About</a>
-        <a href="#contact" class="px-4 text-gray-700 hover:text-indigo-600">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Home -->
+  <section id="home" class="overlay text-center flex flex-col items-center justify-center">
+    <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
+    <p class="text-lg">A collection of my data interactive dashboards/ visualization used in SAIT's projects.</p>
+  </section>
 
-  <!-- Hero Section -->
-  <section class="text-center py-12">
-    <h2 class="text-4xl font-extrabold mb-4">Dashboard Portfolio</h2>
-    <p class="text-lg text-gray-600 max-w-xl mx-auto">
-      A collection of my data dashboards, interactive projects, and visualizations.
+  <!-- Power BI - Lifestyle -->
+  <section id="lifestyle" class="overlay">
+    <h2 class="text-2xl font-semibold mb-4">Lifestyle factors and their impact on students</h2>
+    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
+    <p class="mt-2 text-sm">
+      Dataset source: <a href="https://www.kaggle.com/datasets/charlottebennett1234/lifestyle-factors-and-their-impact-on-students/data" target="_blank" class="underline">Data source</a>
     </p>
   </section>
 
-<!-- Dashboard 1 -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-  <div class="p-4">
-    <h3 class="text-xl font-semibold mb-2">Sales Dashboard</h3>
-    <p class="text-gray-600 mb-4">Interactive Power BI dashboard showing revenue trends.</p>
-    <iframe 
-      title="Sales Dashboard"
-      width="100%" 
-      height="350" 
-      src="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" 
-      frameborder="0" 
-      allowFullScreen="true">
-    </iframe>
-    <a href="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" 
-       target="_blank" 
-       class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-xl mt-3 hover:bg-indigo-700">
-      Open in New Tab
-    </a>
-  </div>
-</div>
-
-<!-- Dashboard 2 -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-  <div class="p-4">
-    <h3 class="text-xl font-semibold mb-2">Customer Analytics Dashboard</h3>
-    <p class="text-gray-600 mb-4">Interactive Power BI dashboard analyzing customer behavior.</p>
-    <iframe 
-      title="Customer Analytics Dashboard"
-      width="100%" 
-      height="350" 
-      src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" 
-      frameborder="0" 
-      allowFullScreen="true">
-    </iframe>
-    <a href="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" 
-       target="_blank" 
-       class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-xl mt-3 hover:bg-indigo-700">
-      Open in New Tab
-    </a>
-  </div>
-</div>
-
+  <!-- Power BI - Video Game -->
+  <section id="videogame" class="overlay">
+    <h2 class="text-2xl font-semibold mb-4">Video game sales</h2>
+    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
+    <p class="mt-2 text-sm">
+      Dataset source: <a href="https://www.kaggle.com/datasets/anandshaw2001/video-game-sales/data" target="_blank" class="underline">Data source</a>
+    </p>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-center p-4 text-gray-600">
-    © 2025 Anh Giang | Built with ❤️ using Tailwind CSS
-  </footer>
-
+  <!-- Looker Studio -->
+  <section id="refugee" class="overlay">
+    <h2 class="text-2xl font-semibold mb-4">Europe Refugee Crisis</h2>
+    <iframe src="https://lookerstudio.google.com/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60" allowfullscreen></iframe>
+    <p class="mt-2 text-sm">
+      Dataset source: <a href="https://learn.sait.ca/d2l/le/content/770793/viewContent/18998381/View" target="_blank" class="underline">Data source</a>
+    </p>
+  </section>
 </body>
 </html>
