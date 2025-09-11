@@ -45,22 +45,27 @@
 
   <!-- Sections -->
   <main id="content">
-    <section id="home" class="overlay">
-      <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
-      <p class="text-lg">A collection of interactive dashboards and visualizations developed during my studies at SAIT.
-All dashboards in this portfolio are created as part of SAIT assignments and projects.
-The datasets used are open-source, with references listed at the bottom of each dashboard page.
-My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</p>
-    </section>
+    <section id="home" class="overlay flex flex-col items-center justify-center text-center">
+  <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
+  <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
+    <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
+    <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
+    <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
+  </ul>
+</section>
   </main>
 
   <script>
     const sections = {
       home: `
     <section id="home" class="overlay flex flex-col items-center justify-center text-center">
-     <h1 class="text-4xl font-bold mb-4">Dinh Anh Giang's Portfolio</h1>
-     <p class="text-lg">A collection of my interactive dashboards and visualizations built for SAIT's projects.</p>
-    </section>
+  <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
+  <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
+    <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
+    <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
+    <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
+  </ul>
+</section>
       `,
       lifestyle: `
         <section id="lifestyle" class="overlay">
