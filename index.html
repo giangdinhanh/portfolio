@@ -109,7 +109,29 @@
         <section id="refugee" class="overlay">
           <h2 class="text-3xl font-bold mb-2">Looker Studio</h2>
           <p class="mb-4 text-lg">Europe Refugee Crisis</p>
-          <iframe src="https://lookerstudio.google.com/embed/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60/page/YC6TF" allowfullscreen></iframe>
+<div class="dashboard-container">
+  <iframe 
+    src="https://lookerstudio.google.com/embed/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60/page/YC6TF"
+    frameborder="0" 
+    allowfullscreen 
+    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+  </iframe>
+</div>
+
+<style>
+  .dashboard-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 ratio */
+  }
+  .dashboard-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
           <p class="mt-2 text-sm">
             Dataset information: <a href="https://ec.europa.eu/eurostat/web/migration-asylum/asylum/database" target="_blank" class="underline">ec.europa.eu</a>
           </p>
