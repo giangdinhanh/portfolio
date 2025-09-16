@@ -41,49 +41,48 @@
       <li><a href="#" id="tab-videogame" onclick="showSection('videogame', this)" class="hover:text-yellow-300">Power BI - Dashboard 02</a></li>
       <li><a href="#" id="tab-refugee" onclick="showSection('refugee', this)" class="hover:text-yellow-300">Looker Studio</a></li>
       <li><a href="#" id="tab-rproject" onclick="showSection('rproject', this)" class="hover:text-yellow-300">R Project</a></li>
-</ul>
+    </ul>
   </nav>
 
   <!-- Sections -->
   <main id="content">
     <section id="home" class="overlay flex flex-col items-center justify-center text-center">
-  <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
-  <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
-    <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
-    <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
-    <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
-  </ul>
-  <p class="text-sm mt-6">
-    Background information: 
-    <a href="https://www.freepik.com/free-vector/abstract-bright-geometric-line-modern-wallpaper-design_419498933.htm#fromView=keyword&page=1&position=0&uuid=e55ac760-493d-466c-98f9-17152934fe15&query=Abstract+background" 
-       target="_blank" 
-       class="underline">
-       Freepik.com
-    </a>
-  </p>
-</section>
+      <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
+      <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
+        <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
+        <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
+        <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
+      </ul>
+      <p class="text-sm mt-6">
+        Background information: 
+        <a href="https://www.freepik.com/free-vector/abstract-bright-geometric-line-modern-wallpaper-design_419498933.htm#fromView=keyword&page=1&position=0&uuid=e55ac760-493d-466c-98f9-17152934fe15&query=Abstract+background" 
+          target="_blank" 
+          class="underline">
+          Freepik.com
+        </a>
+      </p>
+    </section>
   </main>
 
   <script>
     const sections = {
       home: `
-    <section id="home" class="overlay flex flex-col items-center justify-center text-center">
-  <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
-  <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
-    <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
-    <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
-    <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
-  </ul>
-  <p class="text-sm mt-6">
-    Background information: 
-    <a href="https://www.freepik.com/free-vector/abstract-bright-geometric-line-modern-wallpaper-design_419498933.htm#fromView=keyword&page=1&position=0&uuid=e55ac760-493d-466c-98f9-17152934fe15&query=Abstract+background" 
-       target="_blank" 
-       class="underline">
-       Freepik.com
-    </a>
-  </p>
-</section>
-
+        <section id="home" class="overlay flex flex-col items-center justify-center text-center">
+          <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
+          <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
+            <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
+            <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
+            <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
+          </ul>
+          <p class="text-sm mt-6">
+            Background information: 
+            <a href="https://www.freepik.com/free-vector/abstract-bright-geometric-line-modern-wallpaper-design_419498933.htm#fromView=keyword&page=1&position=0&uuid=e55ac760-493d-466c-98f9-17152934fe15&query=Abstract+background" 
+              target="_blank" 
+              class="underline">
+              Freepik.com
+            </a>
+          </p>
+        </section>
       `,
       lifestyle: `
         <section id="lifestyle" class="overlay">
@@ -109,54 +108,43 @@
         <section id="refugee" class="overlay">
           <h2 class="text-3xl font-bold mb-2">Looker Studio</h2>
           <p class="mb-4 text-lg">Europe Refugee Crisis</p>
-<div class="dashboard-container">
-  <iframe 
-    src="https://lookerstudio.google.com/embed/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60/page/YC6TF"
-    frameborder="0" 
-    allowfullscreen 
-    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-  </iframe>
-</div>
-
-<style>
-  .dashboard-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 ratio */
-  }
-  .dashboard-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+          <div class="dashboard-container">
+            <iframe 
+              src="https://lookerstudio.google.com/embed/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60/page/YC6TF"
+              frameborder="0" 
+              allowfullscreen 
+              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+            </iframe>
+          </div>
+          <style>
+            .dashboard-container {
+              position: relative;
+              width: 100%;
+              padding-top: 56.25%; /* 16:9 ratio */
+            }
+            .dashboard-container iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+          </style>
           <p class="mt-2 text-sm">
             Dataset information: <a href="https://ec.europa.eu/eurostat/web/migration-asylum/asylum/database" target="_blank" class="underline">ec.europa.eu</a>
           </p>
         </section>
-      ,
-rproject: `
-  <section id="rproject" class="overlay">
-    <h2 class="text-3xl font-bold mb-2">R Project - Statistical Analysis</h2>
-    <p class="mb-4 text-lg">An interactive report rendered from R Quarto. Includes data preparation, visualization design, and statistical analysis.</p>
-
-    <div class="dashboard-container">
-      <iframe 
-        src="projects/420 - Final Project - Dinh Anh Giang.html" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <p class="mt-2 text-sm">
-      Dataset information: <a href="https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who" target="_blank" class="underline">Data source</a>
-    </p>
-  </section>
-`,
-
-        
+      `,
+      rproject: `
+        <section id="rproject" class="overlay">
+          <h2 class="text-3xl font-bold mb-2">R Project</h2>
+          <p class="mb-4 text-lg">My R-based Data Analysis Project</p>
+          <iframe src="projects/my_r_project.html" allowfullscreen></iframe>
+          <p class="mt-2 text-sm">
+            Source: <a href="projects/my_r_project.qmd" target="_blank" class="underline">Quarto file</a>
+          </p>
+        </section>
+      `
     };
 
     function showSection(id, element) {
