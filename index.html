@@ -40,8 +40,8 @@
       <li><a href="#" id="tab-lifestyle" onclick="showSection('lifestyle', this)" class="hover:text-yellow-300">Power BI - Dashboard 01</a></li>
       <li><a href="#" id="tab-videogame" onclick="showSection('videogame', this)" class="hover:text-yellow-300">Power BI - Dashboard 02</a></li>
       <li><a href="#" id="tab-refugee" onclick="showSection('refugee', this)" class="hover:text-yellow-300">Looker Studio</a></li>
-      <li><a href="#r-project">R Project</a></li>
-    </ul>
+      <li><a href="#" id="tab-rproject" onclick="showSection('rproject', this)" class="hover:text-yellow-300">R Project</a></li>
+</ul>
   </nav>
 
   <!-- Sections -->
@@ -136,28 +136,27 @@
             Dataset information: <a href="https://ec.europa.eu/eurostat/web/migration-asylum/asylum/database" target="_blank" class="underline">ec.europa.eu</a>
           </p>
         </section>
-   
-   <section id="r-project" class="page">
-  <h1>R Project - Statistical Analysis</h1>
-  <p>An interactive report rendered from R Quarto. Includes data preparation, statistical analysis, and visualization.</p>
+      ,
+rproject: `
+  <section id="rproject" class="overlay">
+    <h2 class="text-3xl font-bold mb-2">R Project - Statistical Analysis</h2>
+    <p class="mb-4 text-lg">An interactive report rendered from R Quarto. Includes data preparation, visualization design, and statistical analysis.</p>
 
-  <div class="dashboard-container">
-    <iframe 
-      src="projects/my_analysis.html" 
-      frameborder="0" 
-      style="border:0;" 
-      allowfullscreen>
-    </iframe>
-  </div>
+    <div class="dashboard-container">
+      <iframe 
+        src="projects/420 - Final Project - Dinh Anh Giang.html" 
+        frameborder="0" 
+        allowfullscreen>
+      </iframe>
+    </div>
 
-  <footer>
-    <p>
-      Dataset source: 
-      <a href="YOUR_DATA_SOURCE_URL" target="_blank">Data source</a>
+    <p class="mt-2 text-sm">
+      Dataset information: <a href="https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who" target="_blank" class="underline">Data source</a>
     </p>
-  </footer>
-</section>
-      `
+  </section>
+`,
+
+        
     };
 
     function showSection(id, element) {
