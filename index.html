@@ -1,163 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinh Anh Giang's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinh Anh Giang | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #3b0a45; /* dark purple */
-      background: url("https://i.imgur.com/pTEacYX.png") no-repeat center center fixed;
-      background-size: cover;
+    /* subtle animated background glow */
+    .blob {
+      filter: blur(60px);
+      opacity: .55;
+      animation: float 10s ease-in-out infinite;
+      transform: translate3d(0,0,0);
     }
-    .overlay {
-      background: rgba(255, 255, 255, 0.3);
-      margin: 10px;
-      padding: 20px;
-      border-radius: 12px;
-      min-height: calc(100vh - 10px);
-    }
-    iframe {
-      aspect-ratio: 16/9;
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-    }
-    .hidden { display: none; }
-    .active-tab {
-      border-bottom: 2px solid yellow;
+    @keyframes float {
+      0%,100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-18px) translateX(10px); }
     }
   </style>
 </head>
-<body>
-  <!-- Sticky Navigation Bar -->
-  <nav class="bg-black bg-opacity-70 p-4 flex justify-center sticky top-0 z-50 shadow-lg">
-    <ul class="flex space-x-8 relative text-white">
-      <li><a href="#" id="tab-home" onclick="showSection('home', this)" class="hover:text-yellow-300">Home</a></li>
-      <li><a href="#" id="tab-lifestyle" onclick="showSection('lifestyle', this)" class="hover:text-yellow-300">Power BI - Dashboard 01</a></li>
-      <li><a href="#" id="tab-videogame" onclick="showSection('videogame', this)" class="hover:text-yellow-300">Power BI - Dashboard 02</a></li>
-      <li><a href="#" id="tab-refugee" onclick="showSection('refugee', this)" class="hover:text-yellow-300">Looker Studio</a></li>
-      <li><a href="#" id="tab-rproject" onclick="showSection('rproject', this)" class="hover:text-yellow-300">R Project</a></li>
-    </ul>
-  </nav>
 
-  <!-- Sections -->
-  <main id="content">
-    <section id="home" class="overlay flex flex-col items-center justify-center text-center">
-      <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
-      <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
-        <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
-        <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
-        <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
-      </ul>
-      <p class="text-sm mt-6">
-        Background information: 
-        <a href="https://www.freepik.com/free-vector/abstract-bright-geometric-line-modern-wallpaper-design_419498933.htm#fromView=keyword&page=1&position=0&uuid=e55ac760-493d-466c-98f9-17152934fe15&query=Abstract+background" 
-          target="_blank" 
-          class="underline">
-          Freepik.com
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <!-- Background glow -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="blob absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-fuchsia-600"></div>
+    <div class="blob absolute top-40 -right-24 h-[420px] w-[420px] rounded-full bg-cyan-500" style="animation-delay: -2s"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_50%),radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.06),transparent_50%)]"></div>
+  </div>
+
+  <!-- Top nav -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="#home" class="font-semibold tracking-tight">Dinh Anh Giang</a>
+      <nav class="hidden gap-6 md:flex text-sm text-slate-200">
+        <a class="hover:text-white" href="#projects">Projects</a>
+        <a class="hover:text-white" href="#dashboards">Dashboards</a>
+        <a class="hover:text-white" href="#about">About</a>
+        <a class="hover:text-white" href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="rounded-xl bg-white/10 px-3 py-2 text-sm hover:bg-white/15 border border-white/10">
+        Let’s talk
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4">
+    <!-- HERO -->
+    <section id="home" class="py-14 md:py-20">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
+            Data Analytics • Digital Operations • Calgary
+          </p>
+
+          <h1 class="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            Hi, I’m <span class="text-fuchsia-300">Dinh Anh Giang</span> —
+            I build dashboards & analytics products that make decisions easier.
+          </h1>
+
+          <p class="mt-4 text-slate-300 leading-relaxed">
+            Here you’ll find my Power BI dashboards, Looker Studio reports, and analysis write-ups
+            from my studies at SAIT and personal projects.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" class="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100">
+              View projects
+            </a>
+            <a href="#dashboards" class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm hover:bg-white/10">
+              View dashboards
+            </a>
+          </div>
+
+          <div class="mt-6 flex items-center gap-3 text-sm text-slate-300">
+            <!-- simple social placeholders -->
+            <a class="hover:text-white underline underline-offset-4" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <span class="text-white/20">•</span>
+            <a class="hover:text-white underline underline-offset-4" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span class="text-white/20">•</span>
+            <a class="hover:text-white underline underline-offset-4" href="#" target="_blank" rel="noreferrer">Resume</a>
+          </div>
+        </div>
+
+        <!-- Right card -->
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl">
+          <h2 class="text-lg font-semibold">Quick highlights</h2>
+          <ul class="mt-4 space-y-3 text-slate-300">
+            <li class="rounded-2xl bg-white/5 p-4 border border-white/10">
+              Power BI dashboards (interactive + embedded)
+            </li>
+            <li class="rounded-2xl bg-white/5 p-4 border border-white/10">
+              Data storytelling + KPI design (clean, recruiter-friendly)
+            </li>
+            <li class="rounded-2xl bg-white/5 p-4 border border-white/10">
+              R / Python projects + write-ups
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-10">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-bold">Projects</h2>
+          <p class="mt-2 text-slate-300">Cards that link to your full pages or embedded dashboards.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <a class="group rounded-3xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+           href="projects/420%20-%20Final%20Project%20-%20Dinh%20Anh%20Giang.html">
+          <p class="text-xs text-slate-300">R Project</p>
+          <h3 class="mt-2 font-semibold group-hover:text-white">
+            Life Expectancy (WHO) Analysis
+          </h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Full HTML report rendered from analysis.
+          </p>
+          <p class="mt-4 text-sm underline underline-offset-4">Open →</p>
         </a>
-      </p>
+
+        <a class="group rounded-3xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+           href="#dashboards">
+          <p class="text-xs text-slate-300">Power BI</p>
+          <h3 class="mt-2 font-semibold group-hover:text-white">
+            Lifestyle & Student Outcomes
+          </h3>
+          <p class="mt-2 text-sm text-slate-300">Interactive dashboard with analysis.</p>
+          <p class="mt-4 text-sm underline underline-offset-4">Jump →</p>
+        </a>
+
+        <a class="group rounded-3xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+           href="#dashboards">
+          <p class="text-xs text-slate-300">Looker Studio</p>
+          <h3 class="mt-2 font-semibold group-hover:text-white">
+            Europe Refugee Crisis
+          </h3>
+          <p class="mt-2 text-sm text-slate-300">Interactive reporting + sources.</p>
+          <p class="mt-4 text-sm underline underline-offset-4">Jump →</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DASHBOARDS (embed section like your old tabs, but cleaner) -->
+    <section id="dashboards" class="py-10">
+      <h2 class="text-2xl font-bold">Dashboards</h2>
+      <p class="mt-2 text-slate-300">Embedded for quick viewing (full screen available inside).</p>
+
+      <div class="mt-6 grid gap-6">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+          <h3 class="text-lg font-semibold">Power BI — Dashboard 01</h3>
+          <p class="text-slate-300 text-sm mt-1">Lifestyle factors and their impact on students</p>
+          <div class="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+            <iframe class="w-full aspect-video"
+              src="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9"
+              allowfullscreen></iframe>
+          </div>
+          <p class="mt-3 text-xs text-slate-300">
+            Dataset: <a class="underline underline-offset-4 hover:text-white"
+              href="https://www.kaggle.com/datasets/charlottebennett1234/lifestyle-factors-and-their-impact-on-students/data" target="_blank" rel="noreferrer">Kaggle</a>
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+          <h3 class="text-lg font-semibold">Power BI — Dashboard 02</h3>
+          <p class="text-slate-300 text-sm mt-1">Video game sales</p>
+          <div class="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+            <iframe class="w-full aspect-video"
+              src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9"
+              allowfullscreen></iframe>
+          </div>
+          <p class="mt-3 text-xs text-slate-300">
+            Dataset: <a class="underline underline-offset-4 hover:text-white"
+              href="https://www.kaggle.com/datasets/anandshaw2001/video-game-sales/data" target="_blank" rel="noreferrer">Kaggle</a>
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+          <h3 class="text-lg font-semibold">Looker Studio</h3>
+          <p class="text-slate-300 text-sm mt-1">Europe Refugee Crisis</p>
+          <div class="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+            <iframe class="w-full aspect-video"
+              src="https://lookerstudio.google.com/embed/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60/page/YC6TF"
+              allowfullscreen
+              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+          </div>
+          <p class="mt-3 text-xs text-slate-300">
+            Dataset: <a class="underline underline-offset-4 hover:text-white"
+              href="https://ec.europa.eu/eurostat/web/migration-asylum/asylum/database" target="_blank" rel="noreferrer">Eurostat</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-10">
+      <h2 class="text-2xl font-bold">About</h2>
+      <div class="mt-4 rounded-3xl border border-white/10 bg-white/5 p-6 text-slate-300 leading-relaxed">
+        <p>
+          I’m studying Data Analytics at SAIT and I love building clean, story-driven dashboards.
+          My work usually includes data prep, KPI design, and visualization that’s easy for non-technical people to use.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-10 pb-16">
+      <h2 class="text-2xl font-bold">Contact</h2>
+      <div class="mt-4 rounded-3xl border border-white/10 bg-white/5 p-6">
+        <p class="text-slate-300">
+          Want to collaborate or chat about data roles in Calgary/remote?
+        </p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a class="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100"
+             href="mailto:your.email@example.com">Email me</a>
+          <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+             href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
     </section>
   </main>
 
+  <footer class="border-t border-white/10 py-8 text-center text-xs text-slate-400">
+    © <span id="y"></span> Dinh Anh Giang • Built with Tailwind
+  </footer>
+
   <script>
-    const sections = {
-      home: `
-        <section id="home" class="overlay flex flex-col items-center justify-center text-center">
-          <h1 class="text-4xl font-bold mb-6">Dinh Anh Giang’s Portfolio</h1>
-          <ul class="text-lg space-y-3 list-disc list-inside max-w-2xl text-left">
-            <li>A collection of interactive dashboards and visualizations developed during my studies at SAIT.</li>
-            <li>The datasets used are open-source, with references listed at the bottom of each dashboard page.</li>
-            <li>My personal contribution to these dashboards ranges from 80% to 100%, including data preparation, visualization design, and analysis.</li>
-          </ul>
-          <p class="text-sm mt-6">
-            Background information: 
-            <a href="https://www.freepik.com/free-vector/abstract-bright-geometric-line-modern-wallpaper-design_419498933.htm#fromView=keyword&page=1&position=0&uuid=e55ac760-493d-466c-98f9-17152934fe15&query=Abstract+background" 
-              target="_blank" 
-              class="underline">
-              Freepik.com
-            </a>
-          </p>
-        </section>
-      `,
-      lifestyle: `
-        <section id="lifestyle" class="overlay">
-          <h2 class="text-3xl font-bold mb-2">Power BI - Dashboard 01</h2>
-          <p class="mb-4 text-lg">Lifestyle factors and their impact on students</p>
-          <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
-          <p class="mt-2 text-sm">
-            Dataset information: <a href="https://www.kaggle.com/datasets/charlottebennett1234/lifestyle-factors-and-their-impact-on-students/data" target="_blank" class="underline">kaggle.com</a>
-          </p>
-        </section>
-      `,
-      videogame: `
-        <section id="videogame" class="overlay">
-          <h2 class="text-3xl font-bold mb-2">Power BI - Dashboard 02</h2>
-          <p class="mb-4 text-lg">Video game sales</p>
-          <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9" allowfullscreen></iframe>
-          <p class="mt-2 text-sm">
-            Dataset information: <a href="https://www.kaggle.com/datasets/anandshaw2001/video-game-sales/data" target="_blank" class="underline">kaggle.com</a>
-          </p>
-        </section>
-      `,
-      refugee: `
-        <section id="refugee" class="overlay">
-          <h2 class="text-3xl font-bold mb-2">Looker Studio</h2>
-          <p class="mb-4 text-lg">Europe Refugee Crisis</p>
-          <div class="dashboard-container">
-            <iframe 
-              src="https://lookerstudio.google.com/embed/reporting/7ea0b198-8661-4553-a2a0-07050fc59c60/page/YC6TF"
-              frameborder="0" 
-              allowfullscreen 
-              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-            </iframe>
-          </div>
-          <style>
-            .dashboard-container {
-              position: relative;
-              width: 100%;
-              padding-top: 56.25%; /* 16:9 ratio */
-            }
-            .dashboard-container iframe {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-            }
-          </style>
-          <p class="mt-2 text-sm">
-            Dataset information: <a href="https://ec.europa.eu/eurostat/web/migration-asylum/asylum/database" target="_blank" class="underline">ec.europa.eu</a>
-          </p>
-        </section>
-      `,
-      rproject: `
-        <section id="rproject" class="overlay">
-          <h2 class="text-3xl font-bold mb-2">R Project</h2>
-          <p class="mb-4 text-lg">Improving Life Expectancy for LifeSpan Initiative Organization</p>
-          <iframe src="projects/420 - Final Project - Dinh Anh Giang.html" allowfullscreen></iframe>
-          <p class="mt-2 text-sm">
-            Dataset information: <a href="https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who" target="_blank" class="underline">kaggle.com</a>
-          </p>
-        </section>
-      `
-    };
-
-    function showSection(id, element) {
-      // Swap content
-      document.getElementById("content").innerHTML = sections[id];
-      // Reset tab highlight
-      document.querySelectorAll("nav a").forEach(tab => tab.classList.remove("active-tab"));
-      // Highlight active tab
-      element.classList.add("active-tab");
-    }
-
-    // Default load Home
-    document.getElementById("tab-home").classList.add("active-tab");
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
