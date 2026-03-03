@@ -376,11 +376,15 @@
   </footer>
 
   <script>
-    // Year + "updated" label
-    document.getElementById("y").textContent = new Date().getFullYear();
-    const d = new Date();
-    document.getElementById("updatedDate").textContent =
-      d.toLocaleString(undefined, { month: "short", year: "numeric" });
+// Year
+document.getElementById("y").textContent = new Date().getFullYear();
+
+// Updated date (only if the element exists)
+const updatedEl = document.getElementById("updatedDate");
+if (updatedEl) {
+  const d = new Date();
+  updatedEl.textContent = d.toLocaleString(undefined, { month: "short", year: "numeric" });
+}
 
     // Mobile menu
     const btn = document.getElementById("menuBtn");
