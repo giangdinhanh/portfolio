@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Animated designer portfolio landing page for GitHub Pages." />
+  <title>Dinh Anh Giang — Data Analytics & AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="project-embed.css" />
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="loader-mark"><span></span><span></span><span></span></div></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="home">
+    <div class="nav-wrap container">
+      <a class="brand reveal-nav" href="#home" aria-label="Homepage">
+        <span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Dinh Anh Giang</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a class="active reveal-nav" href="#home">Home</a>
+        <a class="reveal-nav" href="#about">About</a>
+        <a class="reveal-nav" href="#skills">Skills</a>
+        <a class="reveal-nav" href="#experience">Experiences</a>
+        <a class="reveal-nav" href="#work">Portfolio</a>
+        <a class="reveal-nav" href="#hire-me">Hire Me</a>
+        <a class="reveal-nav" href="#process">Process</a>
+        <a class="reveal-nav" href="#contact">Contact</a>
+      </nav>
+      <div class="header-socials reveal-nav" aria-label="Social links">
+        <a href="https://github.com/giangdinhanh" aria-label="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/dinhanhgiang/" aria-label="LinkedIn">IN</a>
+        <a href="mailto:giangdinhanh1102@gmail.com" aria-label="Email">@</a>
+      </div>
+      <a class="button button-orange nav-cta reveal-nav magnetic" href="mailto:giangdinhanh1102@gmail.com">Hire Me</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero interactive-hero" data-interactive-hero tabindex="0" aria-label="Interactive futuristic city hero. Double-click or press Enter to explore the parallax scene.">
+      <div class="hero-preview" aria-hidden="true">
+        <img class="hero-preview-base" src="assets/hero/data-matrix.jpg.png" alt="">
+        <img class="hero-preview-city" src="assets/hero/city-preview.png" alt="">
+        <div class="hero-preview-tint"></div>
+      </div>
+
+      <div class="hero-parallax-scene" aria-hidden="true">
+        <div class="hero-layer hero-layer-7" data-parallax-layer data-move="3" data-vmove="2" data-scale="1.01">
+          <img src="assets/hero/layer-7-sky-clouds.png" alt="">
+        </div>
+        <div class="hero-layer hero-layer-6" data-parallax-layer data-move="5" data-vmove="3" data-scale="1.015">
+          <img src="assets/hero/layer-6-skyline-vehicles.png" alt="">
+        </div>
+        <div class="hero-layer hero-layer-5" data-parallax-layer data-move="10" data-vmove="6" data-scale="1.02">
+          <img src="assets/hero/layer-5-towers.png" alt="">
+        </div>
+        <div class="hero-layer hero-layer-4" data-parallax-layer data-move="16" data-vmove="10" data-scale="1.025">
+          <img src="assets/hero/layer-4-midground.png" alt="">
+        </div>
+        <div class="hero-layer hero-layer-3" data-parallax-layer data-move="22" data-vmove="13" data-scale="1.03">
+          <img src="assets/hero/layer-3-canal-boats.png" alt="">
+        </div>
+        <div class="hero-layer hero-layer-2" data-parallax-layer data-move="30" data-vmove="18" data-scale="1.04">
+          <img src="assets/hero/layer-2-walkway-people.png" alt="">
+        </div>
+        <div class="hero-layer hero-layer-1" data-parallax-layer data-move="42" data-vmove="22" data-scale="1.05">
+          <img src="assets/hero/layer-1-foreground.png" alt="">
+        </div>
+      </div>
+
+      <div class="hero-reading-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-grid interactive-hero-grid">
+        <div class="hero-copy interactive-hero-copy">
+          <p class="eyebrow hero-line"><span>Hello, My name is </span> <strong>Dinh Anh Giang</strong></p>
+          <h1 class="hero-line">I’m <span class="role-wrap"><span id="typed-role">a Data Analyst</span><i></i></span></h1>
+          <p class="hero-text hero-line">I turn complex data, operational workflows, and system issues into reliable dashboards, actionable insights, and clear solutions for users and stakeholders.</p>
+          <div class="hero-actions hero-line">
+            <a class="button button-orange magnetic" href="#work">View My Work</a>
+            <a class="text-link" href="#about">Read more <span>→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cursor-message" aria-hidden="true">
+        <span class="hero-cursor-dot"></span>
+        <span data-cursor-message>Double-click to explore</span>
+      </div>
+
+      <button class="hero-explore-button" type="button" data-explore-button aria-pressed="false">
+        Explore Data city
+      </button>
+
+      <!-- Persistent decorative bubbles stay above both preview and expanded parallax modes. -->
+      <div class="hero-bottom-bubbles" aria-hidden="true">
+        <div class="hero-bottom-arc hero-bottom-arc-purple"></div>
+        <div class="hero-bottom-arc hero-bottom-arc-white"></div>
+        <div class="hero-floating-bubble"><span></span></div>
+        <div class="hero-outline-bubble hero-outline-bubble-one"></div>
+        <div class="hero-outline-bubble hero-outline-bubble-two"></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container split-grid">
+        <div class="section-heading reveal">
+          <span class="kicker">About me</span>
+          <h2>Data-driven thinking, reliable solutions.</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>I’m a Data Analytics and AI Support professional with 8+ years of experience across digital operations, reporting, stakeholder support, and process improvement. I combine business understanding with hands-on analytics using Power BI, Excel, Python, R, DAX, and reporting tools to transform complex information into practical insights. I also support users through dashboard training, system guidance, issue investigation, testing, and technical troubleshooting.</p>
+          <div class="stats-grid">
+            <div class="float-card"><strong>2,000+</strong><span>Digital channels supported</span></div>
+            <div class="float-card"><strong>1,000+</strong><span>B2B/B2C stakeholders</span></div>
+            <div class="float-card"><strong>85–90%</strong><span>Forecasting accuracy</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="skills">
+      <div class="section-orb section-orb-a" aria-hidden="true"></div>
+      <div class="section-orb section-orb-b" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-title-row reveal"><div><span class="kicker">What I do</span><h2>Skills & services</h2></div><p>From raw data to clear insights and reliable user support.</p></div>
+        <div class="service-grid">
+          <article class="service-card reveal tilt-card"><span>01</span><div class="service-icon">✦</div><h3>Data Analytics & BI</h3><p>Transform business and operational data into meaningful insights using Power BI, Excel, DAX, Python, R, and visualization tools.</p></article>
+          <article class="service-card reveal tilt-card"><span>02</span><div class="service-icon">⌘</div><h3>AI & Technical Support</h3><p>Support users, investigate issues, test system capabilities, document findings, and translate technical information into clear guidance.</p></article>
+          <article class="service-card reveal tilt-card"><span>03</span><div class="service-icon">◈</div><h3>Reporting & Data Quality</h3><p>Build reporting workflows, KPI tracking, structured datasets, standardized definitions, and reliable performance monitoring.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section resume-section" id="experience">
+      <div class="resume-bg-shape resume-bg-one" aria-hidden="true"></div>
+      <div class="resume-bg-shape resume-bg-two" aria-hidden="true"></div>
+      <div class="container">
+        <header class="resume-heading reveal">
+          <span class="kicker">My Resume</span>
+          <h2>Experience and Education</h2>
+          <p>A concise overview of my academic background and professional journey in analytics, digital operations, AI, and business support.</p>
+        </header>
+
+        <div class="resume-columns">
+          <section class="resume-column reveal" aria-labelledby="education-title">
+            <div class="resume-column-title">
+              <div class="resume-title-icon" aria-hidden="true">
+                <span class="icon-head"></span><span class="icon-book"></span>
+              </div>
+              <div><h3 id="education-title">Education</h3><span class="title-rule"></span></div>
+            </div>
+
+            <article class="resume-card" data-expand-card>
+              <div class="resume-line" aria-hidden="true"><span class="moving-square"></span></div>
+              <div class="resume-summary">
+                <h4>Integrated Artificial Intelligence</h4>
+                <p class="resume-meta">Southern Alberta Institute of Technology / Currently Enrolled</p>
+                <p>Developing practical knowledge in artificial intelligence, machine learning, and data-driven problem solving while achieving A-level results across current coursework. This program builds on my analytics background and strengthens my ability to work with AI-supported workflows, intelligent systems, and emerging data technologies.</p>
+              </div>
+              <div class="resume-extra" id="education-more">
+                <div class="resume-entry">
+                  <h4>Data Analytics</h4>
+                  <p class="resume-meta">Southern Alberta Institute of Technology / Completed with A+</p>
+                  <p>Completed formal training in data analytics with an A+ academic result, strengthening my skills in data preparation, analysis, visualization, reporting, and business-focused interpretation. The program complements my professional experience working with dashboards, performance monitoring, and operational data.</p>
+                </div>
+                <div class="resume-entry">
+                  <h4>Bachelor of Economics — Corporate Finance</h4>
+                  <p class="resume-meta">Open University of Ho Chi Minh City</p>
+                  <p>Built a strong foundation in economics, corporate finance, business performance, and financial decision-making. This background supports my ability to approach analytics from both a technical and business perspective, with a focus on translating data into practical recommendations.</p>
+                </div>
+              </div>
+              <button class="resume-toggle" type="button" aria-expanded="false" aria-controls="education-more" aria-label="Show more education">
+                <span class="toggle-bar toggle-horizontal"></span><span class="toggle-bar toggle-vertical"></span>
+              </button>
+            </article>
+          </section>
+
+          <section class="resume-column reveal" aria-labelledby="work-title">
+            <div class="resume-column-title">
+              <div class="resume-title-icon" aria-hidden="true">
+                <span class="icon-head"></span><span class="icon-book"></span>
+              </div>
+              <div><h3 id="work-title">Work Experience</h3><span class="title-rule"></span></div>
+            </div>
+
+            <article class="resume-card" data-expand-card>
+              <div class="resume-line" aria-hidden="true"><span class="moving-square"></span></div>
+              <div class="resume-summary">
+                <h4>Digital Operations Manager</h4>
+                <p class="resume-meta">MCV Group Corporation / March 2019 — Present</p>
+                <p>Lead analytics, reporting, and digital operations across 2,000+ channels and 1,000+ partners. Build Power BI dashboards, improve data structures, support users, coordinate platform initiatives, and provide reporting and forecasting that support business decisions.</p>
+              </div>
+              <div class="resume-extra" id="experience-more">
+                <div class="resume-entry">
+                  <h4>Social Media Executive</h4>
+                  <p class="resume-meta">Blueseed Group / April 2018 — February 2019</p>
+                  <p>Used Excel and Google Sheets to analyze campaign performance, benchmarks, audiences, and advertising results. Helped increase engagement by 25%+, achieve 110% of KPI, and remain under 70% of budget.</p>
+                </div>
+                <!-- <div class="resume-entry">
+                  <h4>Junior Visual Designer</h4>
+                  <p class="resume-meta">Brightfield Creative / 2018 - 2020</p>
+                  <p>Produced digital campaigns, landing pages, and reusable brand assets for consumer clients.</p>
+                </div> -->
+              </div>
+              <button class="resume-toggle" type="button" aria-expanded="false" aria-controls="experience-more" aria-label="Show more work experience">
+                <span class="toggle-bar toggle-horizontal"></span><span class="toggle-bar toggle-vertical"></span>
+              </button>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-title-row reveal"><div><span class="kicker">Portfolio</span><h2>Featured projects</h2></div><a class="button button-purple magnetic" href="https://github.com/" target="_blank" rel="noreferrer">View GitHub</a></div>
+        <div class="project-carousel">
+
+          <button
+            class="project-arrow project-arrow-left"
+            type="button"
+            aria-label="Previous projects"
+          >
+            <span aria-hidden="true">←</span>
+          </button>
+
+          <div class="project-carousel-viewport">
+            <div class="project-grid" id="project-grid">
+
+              <!-- =====================================================
+                   CASE STUDY 1 — POWER BI
+              ====================================================== -->
+              <article class="project-card reveal tilt-card">
+                <div class="project-media">
+                  <img src="assets/project-dashboard.svg" alt="Blue analytics dashboard mockup">
+                  <span class="project-glow"></span>
+                </div>
+                <div class="project-body">
+                  <span>Power BI</span>
+                  <h3>Pulse Analytics Dashboard</h3>
+                  <p>A clearer reporting system for distributed product teams.</p>
+                  <a
+                    class="case-study-toggle"
+                    href="#"
+                    data-project-title="Pulse Analytics Dashboard"
+                    data-project-platform="Microsoft Power BI"
+                    data-embed-url="https://app.powerbi.com/view?r=eyJrIjoiYzQzMmQ1M2YtMGQ0Ni00YzE4LWE5MGEtZWZmMGM4Y2NmMzhmIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9"
+                    aria-expanded="false"
+                  >
+                    Case study →
+                  </a>
+                </div>
+              </article>
+              <!-- END CASE STUDY 1 -->
+
+
+              <!-- =====================================================
+                   CASE STUDY 2 — POWER BI
+              ====================================================== -->
+              <article class="project-card reveal tilt-card">
+                <div class="project-media">
+                  <img src="assets/project-brand.svg" alt="Analytics dashboard project">
+                  <span class="project-glow"></span>
+                </div>
+                <div class="project-body">
+                  <span>Power BI</span>
+                  <h3>Northshore Identity</h3>
+                  <p>A modern visual system and launch site for a creative consultancy.</p>
+                  <a
+                    class="case-study-toggle"
+                    href="#"
+                    data-project-title="Northshore Identity"
+                    data-project-platform="Microsoft Power BI"
+                    data-embed-url="https://app.powerbi.com/view?r=eyJrIjoiNmYyNjdiNGEtZTgwMi00OGNiLWI4NjAtZDdhMTI5ZjdjMDJkIiwidCI6ImY1MmYyMTgzLTlmNjctNGFkMi1iNjU2LTZmNzU0ZmUxOTZjYiIsImMiOjZ9"
+                    aria-expanded="false"
+                  >
+                    Case study →
+                  </a>
+                </div>
+              </article>
+              <!-- END CASE STUDY 2 -->
+
+
+              <!-- =====================================================
+                   CASE STUDY 3 — QUARTO / GITHUB PAGES
+              ====================================================== -->
+              <article class="project-card reveal tilt-card">
+                <div class="project-media">
+                  <img src="assets/project-mobile.svg" alt="Interactive Quarto project">
+                  <span class="project-glow"></span>
+                </div>
+                <div class="project-body">
+                  <span>Quarto / GitHub Pages</span>
+                  <h3>Orbit Habit App</h3>
+                  <p>A friendly habit-building experience with lightweight progress tools.</p>
+                  <a
+                    class="case-study-toggle"
+                    href="#"
+                    data-project-title="Orbit Habit App"
+                    data-project-platform="Quarto on GitHub Pages"
+                    data-embed-url="https://giangdinhanh.github.io/2025animefinalproject/index.html"
+                    aria-expanded="false"
+                  >
+                    Case study →
+                  </a>
+                </div>
+              </article>
+              <!-- END CASE STUDY 3 -->
+
+
+              <!-- =====================================================
+                   CASE STUDY 4 — TEMPLATE
+                   Duplicate this whole article for Case Study 5, 6, 7...
+              ====================================================== -->
+              <article class="project-card reveal tilt-card">
+                <div class="project-media">
+                  <img src="assets/project-dashboard.svg" alt="Case study 4 dashboard">
+                  <span class="project-glow"></span>
+                </div>
+                <div class="project-body">
+                  <span>Flask</span>
+                  <h3>ChurnGuard AI — Flask Integration</h3>
+                  <p>Add the description for your fourth portfolio project here.</p>
+                  <a
+                    class="case-study-toggle"
+                    href="#"
+                    data-project-title="ChurnGuard AI — Flask Integration"
+                    data-project-platform="Flask, KNN model, Postgres in production, SQLite locally"
+                    data-embed-url="https://churnguard-ai-hzl2.onrender.com/"
+                    aria-expanded="false"
+                  >
+                    Case study →
+                  </a>
+                </div>
+              </article>
+              <!-- END CASE STUDY 4 -->
+
+            </div>
+          </div>
+
+          <button
+            class="project-arrow project-arrow-right"
+            type="button"
+            aria-label="Next projects"
+          >
+            <span aria-hidden="true">→</span>
+          </button>
+
+        </div>
+
+        <div class="project-embed-panel" id="project-embed-panel" aria-hidden="true">
+          <div class="project-embed-inner">
+            <div class="project-embed-header">
+              <div>
+                <span class="project-embed-platform" id="project-embed-platform">Interactive project</span>
+                <h3 id="project-embed-title">Project dashboard</h3>
+              </div>
+              <button class="project-embed-close" id="project-embed-close" type="button" aria-label="Close interactive project"><span></span><span></span></button>
+            </div>
+            <div class="project-embed-frame-wrap">
+              <div class="project-embed-loader" id="project-embed-loader"><span></span><p>Loading interactive dashboard…</p></div>
+              <iframe id="project-embed-frame" title="Interactive project dashboard" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hire-section" id="hire-me">
+      <div class="hire-bubble hire-bubble-a" aria-hidden="true"></div>
+      <div class="hire-bubble hire-bubble-b" aria-hidden="true"></div>
+      <div class="hire-bubble hire-bubble-c" aria-hidden="true"></div>
+      <div class="hire-bubble hire-bubble-d" aria-hidden="true"></div>
+      <div class="container hire-grid">
+        <div class="hire-copy reveal">
+          <span class="kicker">Hire me</span>
+          <h2>Why you should hire me</h2>
+          <p>I turn complex ideas into polished digital experiences that feel clear, useful, and visually memorable.</p>
+          <p>My process combines research, interface design, prototyping, and front-end execution, so the final result stays consistent from first concept through launch.</p>
+          <a class="button button-purple magnetic" href="#contact">Discover More</a>
+        </div>
+        <div class="hire-cards" aria-label="Reasons to hire me">
+          <article class="hire-card reveal">
+            <div class="hire-card-icon icon-cyan" aria-hidden="true">◇</div>
+            <div><h3>Designer for ambitious teams</h3><p>Thoughtful systems, strong visual hierarchy, and interfaces built around real user goals.</p></div>
+          </article>
+          <article class="hire-card reveal">
+            <div class="hire-card-icon icon-red" aria-hidden="true">◒</div>
+            <div><h3>Responsive front-end development</h3><p>Fast, accessible implementation with careful attention to motion, spacing, and detail.</p></div>
+          </article>
+          <article class="hire-card reveal">
+            <div class="hire-card-icon icon-violet" aria-hidden="true">✦</div>
+            <div><h3>Reliable creative collaboration</h3><p>Clear communication, organized handoff, and an iterative approach that keeps projects moving.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process">
+      <div class="container">
+        <header class="process-heading reveal">
+          <span class="kicker">Work process</span>
+          <h2>That’s how I do a job</h2>
+          <p>A focused four-step path from early discovery to a refined, launch-ready design.</p>
+        </header>
+        <div class="process-map reveal">
+          <svg class="process-path" viewBox="0 0 1200 230" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="processGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#f39400"/>
+                <stop offset="1" stop-color="#373293"/>
+              </linearGradient>
+            </defs>
+            <path d="M15 132 C150 65 260 62 370 125 S610 54 750 104 S1010 158 1160 54" fill="none" stroke="url(#processGradient)" stroke-width="7" stroke-linecap="round" stroke-dasharray="10 12"/>
+            <path d="M1144 58 L1170 45 L1167 76" fill="none" stroke="#373293" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="process-step step-one">
+            <div class="process-circle"><span class="process-flash"></span><span class="process-icon">✎</span></div>
+            <h3>Design Plan</h3>
+          </div>
+          <div class="process-step step-two">
+            <div class="process-circle"><span class="process-flash"></span><span class="process-icon">⌗</span></div>
+            <h3>Build Design</h3>
+          </div>
+          <div class="process-step step-three">
+            <div class="process-circle"><span class="process-flash"></span><span class="process-icon">◎</span></div>
+            <h3>Understand Brief</h3>
+          </div>
+          <div class="process-step step-four">
+            <div class="process-circle"><span class="process-flash"></span><span class="process-icon">⌕</span></div>
+            <h3>Research</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card reveal">
+        <div class="contact-orbit" aria-hidden="true"><span></span></div>
+        <div><span class="kicker">Let’s work together</span><h2>Have a project in mind?</h2><p>Tell me what you’re building, your timeline, and what success looks like.</p></div>
+        <div class="contact-actions"><a class="button button-orange magnetic" href="mailto:hello@example.com">hello@example.com</a><a class="text-link light" href="https://github.com/" target="_blank" rel="noreferrer">github.com/yourname →</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><p>© <span id="year"></span> Alex Morgan</p><p>Built for GitHub Pages.</p></div></footer>
+  <script src="script.js"></script>
+  <script src="project-embed.js"></script>
+</body>
+</html>
