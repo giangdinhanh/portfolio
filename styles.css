@@ -566,3 +566,114 @@
 @media(prefers-reduced-motion:reduce){
   .hero-bottom-arc,.hero-floating-bubble,.hero-outline-bubble{animation:none!important}
 }
+/* =========================================================
+   FINAL PROCESS CIRCLE LIGHT SWEEP OVERRIDE
+   RIGHT -> LEFT
+========================================================= */
+
+.process-circle {
+  overflow: hidden !important;
+  position: relative;
+}
+
+
+/* Turn off the old breathing glow so the sweep is clear */
+.process-circle::after {
+  animation: none !important;
+  opacity: .18 !important;
+}
+
+
+/* Light beam */
+.process-flash {
+  position: absolute !important;
+
+  top: -35% !important;
+  left: auto !important;
+  right: auto !important;
+
+  width: 38px !important;
+  height: 175% !important;
+
+  z-index: 4 !important;
+
+  pointer-events: none !important;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.12) 18%,
+    rgba(255,255,255,.95) 48%,
+    rgba(255,255,255,.45) 60%,
+    transparent 100%
+  ) !important;
+
+  filter: blur(1px);
+
+  transform:
+    translateX(190px)
+    rotate(18deg);
+
+  animation:
+    circleLightSweep 3.6s
+    cubic-bezier(.4,0,.2,1)
+    infinite !important;
+
+  mix-blend-mode: screen;
+}
+
+
+/* RIGHT -> LEFT */
+@keyframes circleLightSweep {
+
+  0% {
+    transform:
+      translateX(190px)
+      rotate(18deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  78% {
+    transform:
+      translateX(-190px)
+      rotate(18deg);
+
+    opacity: 0;
+  }
+
+  100% {
+    transform:
+      translateX(-190px)
+      rotate(18deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* Each circle follows the previous one */
+
+.step-one .process-flash {
+  animation-delay: 0s !important;
+}
+
+.step-two .process-flash {
+  animation-delay: .45s !important;
+}
+
+.step-three .process-flash {
+  animation-delay: .9s !important;
+}
+
+.step-four .process-flash {
+  animation-delay: 1.35s !important;
+}
