@@ -31,8 +31,9 @@
 .resume-card h4{color:var(--navy);font-size:1.55rem;line-height:1.25;margin-bottom:20px}
 .resume-card p{color:#77798a;font-size:1rem;line-height:1.65}
 .resume-meta{display:inline-block;background:#f6f5fa;padding:4px 10px;margin-bottom:18px;font-weight:600;color:#777!important}
-.resume-extra{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .55s cubic-bezier(.22,1,.36,1),opacity .35s ease,margin .55s ease}
-.resume-extra>*{overflow:hidden}
+.resume-extra{  max-height:0;  overflow:hidden;  opacity:0;  margin-top:0;  transition:    max-height .6s cubic-bezier(.22,1,.36,1),    opacity .35s ease,    margin-top .45s ease;}
+
+.resume-card.expanded .resume-extra{  max-height:1000px;  opacity:1;  margin-top:28px;}
 .resume-entry{padding-top:0;border-top:1px solid transparent;transition:padding .45s ease,border-color .45s ease}
 .resume-card.expanded .resume-extra{grid-template-rows:1fr;opacity:1;margin-top:28px}
 .resume-card.expanded .resume-entry{padding-top:25px;border-color:#ecebf6}
