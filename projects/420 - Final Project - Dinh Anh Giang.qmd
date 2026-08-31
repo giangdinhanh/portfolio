@@ -1,0 +1,954 @@
+---
+title: "420 - Final Project - Improving Life Expectancy for LifeSpan Initiative Organization"
+author: "Dinh Anh Giang"
+format:
+  html:
+    theme: default
+    toc: true
+    include-in-header:
+      text: |
+        <style>
+          /* Make the title area subtle */
+          .quarto-title-block { margin-bottom: .6rem; border-bottom: 1px solid #eee; }
+          .quarto-title-block .title { font-size: 1.15rem; font-weight: 600; color: #444; }
+          .quarto-title-block .author { font-size: .95rem; color: #666; }
+          .quarto-title-block .subtitle { font-size: .95rem; color: #777; }
+        </style>
+editor: visual
+---
+
+```{=html}
+<style>
+h1 {
+  color: navy;
+  border-bottom: 3px solid navy;
+  padding-bottom: 4px;
+}
+h2 {
+  color: royalblue;
+  border-bottom: 2px solid royalblue;
+  padding-bottom: 3px;
+}
+h3 {
+  color: royalblue;
+}
+</style>
+```
+
+![](https://i.ibb.co/srRZmPR/Logo.png){width="442"}
+
+# 1. BUSINESS UNDERSTANDING
+
+## 1.1. INTRODUCTION
+
+LifeSpan Initiative is dedicated to understanding what affects how long people live around the world.
+
+Many past studies missed key factors like infectious diseases and only looked at one year of data.
+
+We take a broader view—analyzing 193 countries from 2000 to 2015 using trusted data from WHO and the UN.
+
+Our research focuses on four main areas: Immunization, Mortality, Economic, and Social factors.
+
+Our goal is to find what truly drives life expectancy and help countries with lower life expectancy create better health policies.
+
+## 1.2. CASE STUDY
+
+**Background:** Life expectancy is a key measure of national health and development. According to this need, LifeSpan Initiative was launched to provide a clear and accurate understanding of what drives life expectancy across the globe.
+
+**Objective:** To identify the most influential health, economic, and social factors affecting life expectancy, and to guide evidence-based policy for countries with low life expectancy.
+
+-   Countries analyzed: 194
+-   Time frame: 2000–2015
+-   Sources: WHO & UN datasets (<https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who>)
+
+## 1.3. 5W 1H ANALYSIS
+
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| No.    | QUESTIONS | SUPPORTING QUESTIONS                                                              | ANSWERS                                                                                                                                                                                 |
++========+===========+===================================================================================+=========================================================================================================================================================================================+
+| **Q1** | **WHO**   | Who are the stakeholder?                                                          | Stakeholders include public healthcare systems, insurance organizations, NGOs, governments, and researchers.                                                                            |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | Who will benefit?                                                                 | Countries with low life expectancy will get insights to improve health policies; WHO and UN gain better data-driven recommendations; researchers obtain comprehensive findings.         |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | Who might face challenges?                                                        | Countries with poor health care systems and limited resources to adapt suggested changes may struggle to improve.                                                                       |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Q2** | **WHAT**  | What is your topic narrowed down in a simple phrase/sentence?                     | Discovering key factors affecting global life expectancy from 2000–2015.                                                                                                                |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | What does your topic involve?                                                     | Analyzing 22 variables grouped into 2 main areas: Health issues and Social issues.                                                                                                      |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | What is it similar to/different from?                                             | Similar to previous global health studies, but different because it uses a multi-year dataset (2000–2015) and integrates health and social matters into several models.                 |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | What might be affected/changed by your topic?                                     | Health policies, vaccination campaigns, healthcare funding, poverty reduction strategies, and education programs.                                                                       |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Q3** | **WHY**   | Why is this topic important? Why does it matter?                                  | By understanding what drives longer lives, governments can prioritize investments in healthcare, education, and economic growth.                                                        |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | Why did certain things happen? What are some causes and effects within the topic? | Low immunization =\> higher infant deaths & lower life expectancy.                                                                                                                      |
+|        |           |                                                                                   |                                                                                                                                                                                         |
+|        |           |                                                                                   | High GDP & education =\> better healthcare access & longer lives.                                                                                                                       |
+|        |           |                                                                                   |                                                                                                                                                                                         |
+|        |           |                                                                                   | Poor health expenditure =\> higher mortality rates & lower life expectancy.                                                                                                             |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Q4** | **WHEN**  | When did this take place?                                                         |                                                                                                                                                                                         |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | Does when this take place affect the topic?                                       | Yes. Over time, vaccination rates increased, GDP improved, and disease patterns shifted, which directly impact life expectancy trends.                                                  |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Q5** | **WHERE** | Where did this take place?                                                        | Global study - 193 countries.                                                                                                                                                           |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | Does it matter where it took place? Is it affected by location?                   | Yes. Different continents face unique challenges based on their current situation.                                                                                                      |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Q6** | **HOW**   | How does this topic work? How does it function? How does it do what it does?      | LifeSpan Initiative uses statistical modeling & regression analysis to measure how variables like vaccination rates, economic growth, schooling, and mortality predict life expectancy. |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | How did it come to be?                                                            | LifeSpan Initiative combined WHO and UN datasets for a more accurate global picture.                                                                                                    |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        |           | How are those involved affected?                                                  | Governments =\> Data-driven policies.                                                                                                                                                   |
+|        |           |                                                                                   |                                                                                                                                                                                         |
+|        |           |                                                                                   | WHO/UN =\> Better resource allocation.                                                                                                                                                  |
+|        |           |                                                                                   |                                                                                                                                                                                         |
+|        |           |                                                                                   | Researchers =\> More comprehensive understanding of longevity.                                                                                                                          |
+|        |           |                                                                                   |                                                                                                                                                                                         |
+|        |           |                                                                                   | Citizens =\> Improved public health measures & potentially longer lives.                                                                                                                |
++--------+-----------+-----------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## 1.4 BUSINESS QUESTION
+
+1.  What factors predict life expectancy?
+2.  How do countries cluster by continents based on social factors (Income Composition of Resource and Schooling)?
+3.  How health factors vary by continent and whether they predict continent classification?
+
+# 2. DATA UNDERSTANDING
+
+## 2.1. DATA DICTIONARY
+
+Data set has 22 columns, for data diagram and further analysis, create 3 new columns (\*) and their definition at the bottom as well:
+
+| No. | Column Name | Definition | Data Type |
+|----|----|----|----|
+| 1 | Country | Country | Text |
+| 2 | Year | Year | Integer |
+| 3 | Status | Developed or Developing status. | Text |
+| 4 | Life expectancy | Life Expectancy in age. | Float |
+| 5 | Adult Mortality | Adult Mortality Rates of both sexes (probability of dying between 15 and 60 years per 1000 population). | Integer |
+| 6 | infant deaths | Number of Infant Deaths per 1000 population. | Integer |
+| 7 | Alcohol | Alcohol, recorded per capita (15+) consumption (in litres of pure alcohol). | Float |
+| 8 | Percentage expenditure | Expenditure on health as a percentage of Gross Domestic Product per capita(%). | Float |
+| 9 | Hepatitis B | Hepatitis B (HepB) immunization coverage among 1-year-olds (%). | Integer |
+| 10 | Measles | Measles - number of reported cases per 1000 population. | Integer |
+| 11 | BMI | Average Body Mass Index of entire population. | Float |
+| 12 | under-five deaths | Number of under-five deaths per 1000 population. | Integer |
+| 13 | Polio | Polio (Pol3) immunization coverage among 1-year-olds (%). | Integer |
+| 14 | Total expenditure | General government expenditure on health as a percentage of total government expenditure (%). | Float |
+| 15 | Diphtheria | Diphtheria tetanus toxoid and pertussis (DTP3) immunization coverage among 1-year-olds (%). | Integer |
+| 16 | HIV/AIDS | Deaths per 1 000 live births HIV/AIDS (0-4 years). | Float |
+| 17 | GDP | Gross Domestic Product per capita (in USD). | Float |
+| 18 | Population | Population of the country. | Integer |
+| 19 | thinness 1-19 years | Prevalence of thinness among children and adolescents for Age 10 to 19 (% ). | Float |
+| 20 | thinness 5-9 years | Prevalence of thinness among children for Age 5 to 9(%). | Float |
+| 21 | Income composition of resources | Human Development Index in terms of income composition of resources (index ranging from 0 to 1). | Float |
+| 22 | Schooling | Number of years of Schooling(years). | Float |
+| 23 | Continent (\*) | Any of the world's main continuous expanses of land (Africa, Antarctica, Asia, Australia, Europe, North America, South America). | Text |
+| 24 | Country_ID (\*) | Unique ID for identifying country | Integer |
+| 25 | Year_ID (\*) | Unique ID for identifying year | Integer |
+
+## 2.2. DATA DIAGRAM
+
+![](https://i.ibb.co/23s3b3pY/data-diagram.png)
+
+# 3. DATA PREPERATION
+
+-   Data set name: `your_dataset.csv`
+
+-   Source: <https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who>
+
+-   How:
+
+    -   The data set was compiled from two major sources:
+
+        -   Health-related data was collected from the Global Health Observatory (GHO) data repository maintained by the World Health Organization (WHO).
+        -   Economic data was sourced from the United Nations website.
+
+    -   Data was gathered for 193 countries and merged into a single data set.
+
+        -   Only critical and representative health-related factors were selected.
+        -   Missing data was identified using the Missmap command in R and countries with significant missing values (e.g., Vanuatu, Tonga, Togo, Cabo Verde) were excluded from the final data set.
+
+-   Purpose: Help the organization pinpoints low life expectancy drivers and guides targeted health policy improvements.
+
+-   Data set information:
+
+    -   Size: 326 KB
+
+    -   Rows: 2,939 (1 header)
+
+    -   Columns: 22
+
+-   Data time frame: 2000 - 2015
+
+## 3.1. LOADING LIBRARY & DATASET
+
+```{r}
+#| label: Loading Library & Dataset
+#| echo: true
+#| message: false
+#| warning: false
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+l_e_raw <- read.csv("Life Expectancy Data.csv")
+```
+
+## 3.2. SUMMARY ANALYSIS
+
+```{r}
+#| label: Summary Analysis of the Dataset
+#| echo: true
+#| message: false
+#| warning: false
+
+glimpse(l_e_raw)
+summary(l_e_raw)
+```
+
+## 3.3. CHECK NA VALUES
+
+Since the NA and 0 values of these columns are so high may effect models (got error from original data set commanded in R),
+
+```{r}
+#| label: Check NA Values
+#| echo: true
+#| message: false
+#| warning: false
+
+# Count NA values and return in % of total rows
+l_e_raw %>%
+  summarise(across(everything(), ~ sum(is.na(.))/n()))
+
+# Count 0 values and return in % of total rows
+l_e_raw %>% 
+  summarise(across(everything(), ~ sum(. ==0, na.rm = TRUE )/n()))
+```
+
+[**Observation result:**]{style="color: dodgerblue"}
+
+Based on the percentage of NA and 0 values in columns, should remove these columns for analysis:
+
+-   **High NULL values:**
+
+    -   GDP (15.25% NULL)
+
+    -   Popularity (22.19% NULL)
+
+    -   Hepatitis.B (18.82% NULL)
+
+-   **High 0 values:**
+
+    -   infant.deaths (28.86% values are 0)
+
+    -   Measles (33.46% values are 0, may be accurate but some countries may be under-reported)
+
+    -   under.five.deaths (26.72% values are 0)
+
+    -   percentage.expenditure (20.8% values are 0)
+
+## 3.4. ADDING NEW SUPPORTING COLUMNS
+
+To enrich the dataset and support the analysis, a new column called "Continent" was created.
+
+Source file: **world-data-2024 1.csv**
+
+=\> The processing was done manually in Excel due to mismatched country name formats.
+
+=\> The column is 100% complete with no NULL values.
+
+=\> Russia (Europe/Asia) and Turkey (Europe/Asia) were classified as Europe for consistency.
+
+## 3.5. EDA
+
+EDA focused on the key columns that contribute most to the models and life expectancy. Box plots were used to identify potential outliers in the numerical variables.
+
+6 variables will be identified:
+
+-   Life Expectancy
+
+-   Adult Mortality
+
+-   BMI
+
+-   HIV/AIDS
+
+-   Income Composition of Resources
+
+-   Schooling
+
+::: panel-tabset
+### 3.5.1. Box Plot Life Expectancy
+
+```{r}
+#| label: Box Plot Life Expectancy
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot_le <- l_e_raw %>%
+  ggplot(aes(y = Life.expectancy, fill = Continent)) +
+  geom_boxplot(fill = "slateblue3") +
+  labs(title = "Box Plot Life Expectancy", 
+      y = "Life Expectancy") +
+  theme_minimal()
+plot_le <- ggplotly(ggplot_le)
+plot_le
+```
+
+### 3.5.2. Box Plot of Adult Mortality
+
+```{r}
+#| label: Box Plot of Adult Mortality
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot_am <- l_e_raw %>%
+  ggplot(aes(y = Adult.Mortality)) +
+  geom_boxplot(fill = "orchid3") +
+  labs(title = "Box Plot of Adult Mortality", 
+      y = "Adult Mortality") +
+  theme_minimal()
+plot_am <- ggplotly(ggplot_am)
+plot_am
+```
+
+### 3.5.3. Box Plot of BMI
+
+```{r}
+#| label: Box Plot of BMI
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot_bmi <- l_e_raw %>%
+  ggplot(aes(y = BMI)) +
+  geom_boxplot(fill = "steelblue2") +
+  labs(title = "Box Plot of BMI", 
+      y = "BMI") +
+  theme_minimal()
+plot_bmi <- ggplotly(ggplot_bmi)
+plot_bmi
+```
+
+### 3.5.4. Box Plot of HIV/AIDS
+
+```{r}
+#| label: Box Plot of HIV/AIDS
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot_ha <- l_e_raw %>%
+  ggplot(aes(y = HIV.AIDS)) +
+  geom_boxplot(fill = "darkturquoise") +
+  labs(title = "Box Plot of HIV/AIDS", 
+      y = "HIV/AIDS") +
+  theme_minimal()
+plot_ha <- ggplotly(ggplot_ha)
+plot_ha
+```
+
+### 3.5.5. Box Plot of Income Composition of Resources
+
+```{r}
+#| label: Box Plot of Income Composition of Resources
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot_ic <- l_e_raw %>%
+  ggplot(aes(y = Income.composition.of.resources)) +
+  geom_boxplot(fill = "lightseagreen") +
+  labs(title = "Box Plot of Income Composition of Resources", 
+      y = "Income Composition of Resources") +
+  theme_minimal()
+plot_ic <- ggplotly(ggplot_ic)
+plot_ic
+```
+
+### 3.5.6. Box Plot of Schooling
+
+```{r}
+#| label: Box Plot of Schooling
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot_sc <- l_e_raw %>%
+  ggplot(aes(y = Schooling)) +
+  geom_boxplot(fill = "cornflowerblue") +
+  labs(title = "Box Plot of Schooling", 
+      y = "Schooling") +
+  theme_minimal()
+plot_sc <- ggplotly(ggplot_sc)
+plot_sc
+```
+:::
+
+[**Observation result:**]{style="color: blue"}
+
+| No. | Variables | Outliers |
+|----|----|----|
+| 1 | Life.expectancy | lower than 44.3 |
+| 2 | Adult.Mortality | upper than 459 |
+| 3 | BMI | Don't have outliers |
+| 4 | HIV/AIDS | upper than 1.8 |
+| 5 | Income.composition.of.resources | lower 0.253 (only have outliers are 0 values) |
+| 6 | Schooling | higher than 20.7 and lower than 3.8 |
+
+## 3.6. DATA SET RETURNED
+
+The final cleaned data set for modelling and visualization, summarize of returned data:
+
+-   File name: **Life Expectancy Data - for R.csv**
+
+-   Size: 363 KB
+
+-   Rows: 2,939 (1 header)
+
+-   Columns: 25
+
+```{r}
+#| label: Final Data Set
+#| echo: true
+#| message: false
+#| warning: false
+
+# Import final Dataset
+le_final <- read.csv("Life Expectancy Data - for R.csv")
+
+# Select only suitable columns that answer Business Questions
+le_clean <- le_final %>% 
+  select(Continent, Country, Year,	Life.expectancy ,	Adult.Mortality,	Alcohol, BMI, 	Polio,	Total.expenditure,	Diphtheria, 	 HIV.AIDS,	 thinness..1.19.years,	 thinness.5.9.years,	Income.composition.of.resources,	Schooling)
+```
+
+# 4. MODELING
+
+Each Business Questions will be followed by suitable Models:
+
+1.  What factors predict life expectancy? =\> **Multiple Regression**
+2.  How do countries cluster by continents based on social factors (Income Composition of Resource and Schooling)? =\> **K-Means**
+3.  How health factors vary by continent and whether they predict continent classification? =\> **Decision Tree**\
+
+::: panel-tabset
+## 4.1. MULTIPLE REGRESSION
+
+Research question: **What factors predict life expectancy?**
+
+### 4.1.1. Correlation Matrix
+
+A correlation matrix was used to identify the variables that contribute most to improving Life Expectancy.
+
+```{r}
+#| label: Correlation Matrix
+#| echo: true
+#| message: false
+#| warning: false
+
+# Load libraries
+library(corrplot)
+library(ggcorrplot)
+
+# Create file with only numerical columns
+le_numeric <- na.omit(le_clean) %>% 
+  select(Year,	Life.expectancy ,	Adult.Mortality,	Alcohol, BMI, 	Polio,	Total.expenditure,	Diphtheria, 	 HIV.AIDS,	 thinness..1.19.years,	 thinness.5.9.years,	Income.composition.of.resources,	Schooling)
+
+# Create Correlation Matrix
+le_cor_matric <- cor(le_numeric)
+ggcorrplot(le_cor_matric, lab = TRUE, type ="lower")
+
+```
+
+[**EVALUATION:**]{style="color: dodgerblue"}
+
+The most contributing factors followed by their coefficient values are:
+
+-   [**Positive Relationship:**]{style="color: indianred"}
+
+    -   **Social issues:** Schooling (0.73), Income Composition of Resources (0.70)
+
+    -   **Health issues:** BMI (0.54).
+
+-   [**Negative Relationship:**]{style="color: mediumpurple"}
+
+    -   **Health issues:** Adult Mortality (-0.70), HIV.AIDS (-0.59)
+
+### 4.1.2. Multiple Regression Equation
+
+Since the dataset includes 13 variables, the Best Model was selected and compared with a Multiple Regression model built using only the variables with the highest positive and highest negative coefficients.
+
+The objective is to:
+
+-   Identify which variables contribute the most to Life Expectancy
+
+-   Determine the most efficient resources for improving lifespan
+
+-   Achieve the highest R-squared value for model performance
+
+=\> Best Model for Multiple Regression will be used for further analysis and recommendations.
+
+Best Model for Multiple Regression
+
+```{r}
+#| label: Best Model for Multiple Regression
+#| echo: true
+#| message: false
+#| warning: false
+
+full_model <- lm(Life.expectancy ~ ., data = le_numeric)
+summary(full_model)
+
+best_model <- step(full_model, direction = "both")
+summary(best_model)
+```
+
+Multiple regression by Highest Coefficient variables:
+
+```{r}
+#| label: Multiple Regression by Highest Coefficient Variables
+#| echo: true
+#| message: false
+#| warning: false
+
+
+lm_model <- lm(Life.expectancy ~ Adult.Mortality + BMI + HIV.AIDS +	Income.composition.of.resources +	Schooling, data= le_numeric)
+
+summary(lm_model)
+```
+
+[**EVALUATION:**]{style="color: dodgerblue"}
+
+According to the analysis, when Life Expectancy is the dependent variable, the Best Model recommends 9 variables to achieve the highest R-squared value.
+
+On the other hand, the Multiple Regression model built based on the Correlation Matrix only includes 5 variables whose coefficients are greater than 0.5 or less than -0.5.
+
+The comparison table below shows the detailed results of both models.
+
+*(P-value significance levels: \*\*\* \< 0.005; \*\* = 0.005–0.001; \* = 0.01–0.05)*
+
++--------------------+----------------------------------------+-------------------------------------------+
+|                    | Best Model                             | Variables based on the Correlation Matrix |
++====================+========================================+===========================================+
+| Variables          | Year \*\*                              | Adult.Mortality \*\*\*                    |
+|                    |                                        |                                           |
+|                    | Adult.Mortality \*\*\*                 | BMI \*\*\*                                |
+|                    |                                        |                                           |
+|                    | BMI \*\*\*                             | HIV.AIDS \*\*\*                           |
+|                    |                                        |                                           |
+|                    | Total.expenditure                      | Income.composition.of.resources \*\*\*    |
+|                    |                                        |                                           |
+|                    | Diphtheria \*\*\*                      | Schooling \*\*\*                          |
+|                    |                                        |                                           |
+|                    | HIV.AIDS \*\*\*                        |                                           |
+|                    |                                        |                                           |
+|                    | thinness..1.19.years \*\*              |                                           |
+|                    |                                        |                                           |
+|                    | Income.composition.of.resources \*\*\* |                                           |
+|                    |                                        |                                           |
+|                    | Schooling \*\*\*                       |                                           |
++--------------------+----------------------------------------+-------------------------------------------+
+| Adjusted R-squared | 0.8174                                 | 0.8039                                    |
++--------------------+----------------------------------------+-------------------------------------------+
+
+The Best Model returned a model with 9 variables and achieved an R-squared of 81.7%. Meanwhile, the manual Multiple Regression model, which selected only 5 variables (all of which have significant contributions), reached an R-squared of 80.4% - just 1.3% lower than the Best Model.
+
+Therefore, the LifeSpan Initiative should consider using the Multiple Regression model for faster tracking and easier adaptation since it requires fewer resources for data collection. By focusing on these key contributing factors, the organization can improve Life Expectancy more efficiently.
+
+## 4.2. K-MEANS FOR CONTINENTS BASED ON SOCIAL FACTORS
+
+Research question: **How do countries cluster by continents based on social factors (Income Composition of Resource and Schooling) changing between 2000 and 2010?**
+
+Based on the most suitable factors, K-Means model will select the best positive relationship variables to group continents based on this.
+
+### 4.2.1. Elbow Method for Optimal K
+
+```{r}
+#| label: Elbow Method for Optimal K
+#| echo: true
+#| message: false
+#| warning: false
+
+# OPTIMAL K FOR 2000:
+   # Filter for year 2000 and exclude 0 values:
+le_clean_2000 <- na.omit(le_clean) %>%  
+  filter(Income.composition.of.resources != 0 & Schooling !=0 & Life.expectancy != 0 & Year == 2000)
+
+   # Scale values
+le_scaled_2000 <- le_clean_2000 %>% 
+  mutate(across(c(Income.composition.of.resources, Schooling, Life.expectancy), scale))
+
+   # Create dataset for Elbow Method
+le_elbow_2000 <- na.omit(le_scaled_2000) %>% 
+  mutate(across(c(Income.composition.of.resources, Schooling, Life.expectancy), scale)) %>% 
+  select(Income.composition.of.resources, Schooling, Life.expectancy)
+
+wss_2000 <- map_dbl(1:10, function(k) {
+  kmeans(le_elbow_2000, centers = k, nstart = 25)$tot.withinss
+})
+
+tibble(k = 1:10, wss = wss_2000) %>%
+  ggplot(aes(x = k, y = wss_2000)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = 1:10) + 
+  labs(title = "Elbow Method for Optimal K IN 2000",
+       x = "Number of Clusters", y = "WCSS") +
+  theme_minimal()
+
+#==================================================================#
+# OPTIMAL K FOR 2010:
+   # Filter for year 2010 and exclude 0 values:
+le_clean_2010 <- na.omit(le_clean) %>%  
+  filter(Income.composition.of.resources != 0 & Schooling !=0 & Life.expectancy != 0 & Year == 2010)
+
+   # Scale values
+le_scaled_2010 <- le_clean_2010 %>%
+  mutate(across(c(Income.composition.of.resources, Schooling, Life.expectancy), scale))
+
+   # Create dataset for Elbow Method
+le_elbow_2010 <- na.omit(le_scaled_2010) %>% 
+  mutate(across(c(Income.composition.of.resources, Schooling, Life.expectancy), scale)) %>% 
+  select(Income.composition.of.resources, Schooling, Life.expectancy)
+
+wss_2010 <- map_dbl(1:10, function(k) {
+  kmeans(le_elbow_2010, centers = k, nstart = 25)$tot.withinss
+})
+
+tibble(k = 1:10, wss = wss_2010) %>%
+  ggplot(aes(x = k, y = wss_2010)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = 1:10) +  
+  labs(title = "Elbow Method for Optimal K IN 2010",
+       x = "Number of Clusters", y = "WCSS") +
+  theme_minimal()
+```
+
+After running Elbow Method, the Optimal K for both K-Means models are 2 (when doing square root of 5-6 continents, the number is equal to 2).
+
+That is why the model uses K=2 for observing.
+
+### 4.2.2. K-Means Models for year 2000 and 2010
+
+*\*I tried 3d scatter plot to adding a BMI variable but it took so long for running. Therefore, I altered 2D scatter plot.*
+
+```{r}
+#| label: K-Means for Continents based on Social Issues
+#| echo: true
+#| message: false
+#| warning: false
+
+# K-MEANS MODEL FOR 2000:
+   # Normalize data:
+set.seed(123)
+kmeans_le_result_2000 <- kmeans(le_scaled_2000 %>% 
+                             select(Income.composition.of.resources, Schooling, Life.expectancy),
+                           centers = 2, nstart = 50)
+
+   # Run K-Means Clustering:
+kmeans_le_clustered_2000 <- le_clean_2000 %>% 
+  mutate(cluster = factor(kmeans_le_result_2000$cluster))
+cluster_colors_2000 <- c("2" = "blue", "1" = "purple")
+
+   # Summarize average cluster for evaluation:
+avg_cluster_2000 <- kmeans_le_clustered_2000 %>% 
+  group_by(cluster) %>% 
+  summarise(avg_income.composition.of.resources = mean(Income.composition.of.resources),
+          avg_schooling = mean(Schooling))
+avg_cluster_2000
+
+   # Visualize Clustering into Interactive Chart
+ggplot_km_2000 <- kmeans_le_clustered_2000 %>%
+  ggplot(aes(x = Income.composition.of.resources, y = Schooling, color = cluster, shape = Continent, label = Country)) +
+  geom_point(size = 3, alpha = 0.5) +
+  scale_color_manual(values = cluster_colors_2000) +
+  labs(title = "K-Means Clustering of Continent in 2000",
+       x = "Income Composition of Resources",
+       y = "Schooling") +
+  theme_minimal()
+plotly_km_2000 <- ggplotly(ggplot_km_2000)
+plotly_km_2000
+
+#========================================================================#
+
+# K-MEANS MODEL FOR 2010:
+   # Normalize data:
+set.seed(123)
+kmeans_le_result_2010 <- kmeans(le_scaled_2010 %>% 
+                             select(Income.composition.of.resources, Schooling, Life.expectancy),
+                           centers = 2, nstart = 50)
+
+   # Run K-Means Clustering:
+kmeans_le_clustered_2010 <- le_clean_2010 %>% 
+  mutate(cluster = factor(kmeans_le_result_2010$cluster))
+cluster_colors_2010 <- c("1" = "blue", "2" = "purple")
+
+  # Summarize average cluster for evaluation:
+avg_cluster_2010 <- kmeans_le_clustered_2010 %>% 
+  group_by(cluster) %>% 
+  summarise(avg_income.composition.of.resources = mean(Income.composition.of.resources),
+          avg_schooling = mean(Schooling))
+avg_cluster_2010
+
+   # Visualize Clustering into Interactive Chart
+ggplot_km_2010 <- kmeans_le_clustered_2010 %>%
+  ggplot(aes(x = Income.composition.of.resources, y = Schooling, color = cluster, shape = Continent, label = Country)) +
+  geom_point(size = 3, alpha = 0.5) +
+  scale_color_manual(values = cluster_colors_2010) +
+  labs(title = "K-Means Clustering of Continent in 2010",
+       x = "Income Composition of Resources",
+       y = "Schooling") +
+  theme_minimal()
+plotly_km_2010 <- ggplotly(ggplot_km_2010)
+plotly_km_2010
+```
+
+[**EVALUATION:**]{style="color: dodgerblue"}
+
+There were some notable changing across clusters between 2000 and 2010.
+
+In particular, 2010 shown significant differences between clusters. Schooling witnessed a marked improvement, especially in the lower ranked cluster, narrowing the gap between min and max values. Income Composition also improved in a slightly range.
+
++-----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| **Cluster group**                                                                 | **2000**                                                                              | **2010**                                                                                                        |
++-----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| [Low Schooling and Low Income Composition for Resources]{style="color: blue"}     | Income Composition of Resources:                                                      | Income Composition of Resources:                                                                                |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | -   Avg: 0.419                                                                        | Avg: 0.487                                                                                                      |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | -   Min: 0.253 - Max: 0.582                                                           | Min: 0.312 - Max: 0.669                                                                                         |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Schooling:                                                                            | Schooling:                                                                                                      |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | -   Avg: 7.471                                                                        | Avg: 9.507                                                                                                      |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | -   Min: 2.8 - Max: 11.7                                                              | Min: 4.5 - Max: 12.8                                                                                            |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Majority: Africa countries. Had 2 outliers: Djibouti and Niger (Schooling \< 3.8)     | **All indicators improved. Schooling's minimum value nearly doubled compared to 2000 and no outliers.**         |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | 11 Asia countries.                                                                    | Majority: Africa countries. Niger remained the lowest country in both variables. Next are Eritrea and Djibouti. |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | 2 Australia countries: Guinea, Solomon                                                | 11 Asia countries.                                                                                              |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | 2 American countries: Guatemala, Haiti                                                | 4 Australia countries: Added Kiribati and Vanuatu.                                                              |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   |                                                                                       | 2 America countries: Haiti, Guyana (Guatemala was adjacent to Guyana but was classified into high group)        |
++-----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| [High Schooling and High Income Composition for Resources]{style="color: purple"} | Income Composition of Resources:                                                      | Income Composition of Resources:                                                                                |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Avg: 0.724                                                                            | Avg: 0.767                                                                                                      |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Min: 0.551 - Max: 0.911                                                               | Min: 0.602 - Max: 0.936                                                                                         |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Schooling:                                                                            | Schooling:                                                                                                      |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Avg: 13.159                                                                           | Avg: 14.113                                                                                                     |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Min: 9.5 - Max: 20.4                                                                  | Min: 10.8 - Max: 20.3                                                                                           |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | All Europe countries were in this cluster, concetrated above the average.             | **All measures increased slightly compared to 2000, but at a slower rate than the lower ranked cluster.**       |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Asia, America, and Africa countries were mostly below the average.                    | Oceania country appeared.                                                                                       |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   | Australia stood out with the highest values in both Income composition and Schooling. | Europe countries remained dominant and clustered above the average.                                             |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   |                                                                                       | Asia, America, and Africa countries followed the same pattern as in 2000.                                       |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   |                                                                                       | Top performance in Income Composition were Europe.                                                              |
+|                                                                                   |                                                                                       |                                                                                                                 |
+|                                                                                   |                                                                                       | Top performance in Schooling: New Zealand, followed by Australia.                                               |
++-----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+## 4.3. DECISION TREE & RANDOM FOREST BASED ON HEALTH FACTORS
+
+Research question: **How health factors vary by continent and whether they predict continent classification?**
+
+### 4.3.1. Decision Tree based on Health Factors
+
+Based on the Correlation matrix, Decision tree model selected health factors with the highest correlation to Life Expectancy. They include: Adult Mortality, HIV/AIDS, BMI, and thinness 1-19 years (\*).
+
+*(\*) Since Thinness 5-9 years and Thinness 1-19 years had equal coefficients to Life Expectancy, Thinness 1-19 years was chosen for its broader representation of early childhood and adolescent ages.*
+
+```{r}
+#| label: Decision Tree Based on Health Factors
+#| echo: true
+#| message: false
+#| warning: false
+
+# Load library
+library(rpart)
+library(rpart.plot)
+library(caret)
+
+# Life Expectancy cleaned dataset
+table(le_clean$Continent)
+
+set.seed(123)
+train_index <- sample(1:nrow(le_clean), 0.7 * nrow(le_clean))
+train_data <- le_clean[train_index, ]
+test_data <- le_clean[-train_index, ]
+
+# Fit a decision tree
+tree_model <- rpart(Continent ~ Adult.Mortality + HIV.AIDS + BMI + thinness..1.19.years , data = train_data, method = "class")
+
+predictions <- predict(tree_model, test_data, type = "class")
+
+confusionMatrix <- table(Predicted = predictions, Actual = test_data$Continent)
+
+print(confusionMatrix)
+
+accuracy <- sum(predictions == test_data$Continent) / nrow(test_data) * 100
+print(paste("Accuracy:", round(accuracy, 3), "%"))
+
+
+# Plot the tree
+rpart.plot(tree_model, main = "Decision Tree for Health Factors effect Life Expectancy by Continents",
+           cex = 0.4
+           )
+```
+
+### 4.3.2. Random Forest based on Health Factors
+
+Running Random Forest for observing better model:
+
+```{r}
+#| label: Random Forest Based on Health Factors
+#| echo: true
+#| message: false
+#| warning: false
+
+library(randomForest)
+
+# Prepare the data for Random Forest
+le_fr <- na.omit(le_clean) %>% 
+  select(Continent, Adult.Mortality , HIV.AIDS,  BMI , thinness..1.19.years) %>% 
+  mutate(across(c(Continent), as.factor))
+
+# Split into training and testing sets
+set.seed(123)
+index <- sample(1:nrow(le_fr), 0.7 * nrow(le_fr))
+train <- droplevels(le_fr[index, ])
+test <- droplevels(le_fr[-index, ])
+
+# Train Random Forest
+rf_model <- randomForest(Continent ~ Adult.Mortality + HIV.AIDS+  BMI + thinness..1.19.years, data = train, ntree = 200)
+
+# Predict and evaluate
+rf_preds <- predict(rf_model, test)
+confusion <- table(Predicted = rf_preds, Actual = test$Continent)
+print(confusion)
+
+accuracy <- sum(diag(confusion)) / sum(confusion)
+cat("Accuracy:", round(accuracy * 100, 2), "%\n")
+```
+
+[**EVALUATION:**]{style="color: dodgerblue"}
+
+In Decision Tree model with Accuracy = 72.449%, means the model predicts correctly the continents for 72% out of every 100 records.
+
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+| Continent | Total sample | Correctly predicted | Accuracy | Observation                                                                                                              |
++===========+==============+=====================+==========+==========================================================================================================================+
+| Africa    | 246          | 192                 | 78%      | Root Note and Majority class here because less separable (the same in K-Means model, gathered densely in lower cluster). |
+|           |              |                     |          |                                                                                                                          |
+|           |              |                     |          | Root Note: splited by HIV.AIDS to Africa and Asia                                                                        |
+|           |              |                     |          |                                                                                                                          |
+|           |              |                     |          | Internal Note: splited by BMI for Africa and America.                                                                    |
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+| America   | 174          | 99                  | 57%      | Overlapping to Africa, Asia, Europe, Australia.                                                                          |
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+| Asia      | 212          | 180                 | 85%      | Overlapping to Africa , Europe, America (no overlap to Australia and Oceania)                                            |
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+| Australia | 44           | 20                  | 50%      | Overlap to America, Asia.                                                                                                |
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+| Europe    | 203          | 146                 | 72%      | Overlap to America, Asia,Australia.                                                                                      |
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+| Oceania   | 3            | 0                   | 0%       | Lack of sample so model detected Oceania as outlier and excluded from the model.                                         |
++-----------+--------------+---------------------+----------+--------------------------------------------------------------------------------------------------------------------------+
+
+Based on health factors, we can measure which variables influenced predictions mostly:
+
+-   HIV.AIDS =\> Highly predictor for Africa and some America/Asia.
+
+-   BMI =\> Distinctive for America/Africa or America/Asia.
+
+-   Adult Mortality =\> Minor but to distinguish Europe/America.
+
+-   Thinness 1-19 years =\> Minor but helps separate Europe/America/Australia/Asia.
+
+By using Health Factors in Decision Tree for grouping Continent according to variables: Adult Mortality,HIV/AIDS, BMI, and thinness 1-19 years, the model returned 72.449% accuracy in prediction:
+
+-   The model performs best for Asia then Africa and Europe where health pattern are more distinguish.
+
+-   Australia and America show higher overlap due to similar health indicators.
+
+-   Oceania is unused because of very limited data.
+
+However, Random Forest seems much better than Decision Tree when the accuracy reached 89.05% (17% improvement)
+
+|  |  |  |  |  |
+|----|----|----|----|----|
+| **Continent** | **Total Sample** | **Correct predicted** | **Accuracy** | **Improvement (Random Forest vs Decision Tree)** |
+| **Africa** | 219 | 212 | 97% | 19% |
+| **America** | 144 | 115 | 80% | 23% |
+| **Asia** | 188 | 169 | 90% | 5% |
+| **Australia** | 40 | 30 | 75% | 25% |
+| **Europe** | 171 | 153 | 89% | 17% |
+| **Oceania** | 5 | 4 | 80% | 80% |
+
+Random Forest significantly outperforms Decision Tree across all continents, especially in smaller sample size like Oceania and Australia)
+
+The high accuracy (89% in total and 97% for Africa, 90% for Asia) made by Random Forest proves Health Factors are strong predictors for continent classification.
+:::
+
+# 5. CONCLUSION
+
+**Key contributors for Life Expectancy:**
+
+-   Positive: Schooling (0.73), Income Composition of Resources (0.7), BMI (0.54)
+
+-   Negative: Adult Mortality (-0.7), HIV.AIDS (-0.59)
+
+Recommend Multiple Regression for faster, cost effective tracking:
+
+-   Life Expectancy = -0.017\* Adult Mortality + 0.043\*BMI - 0.503\*HIV/AIDS + 8.908\*Income Composition of Resources + 1.116\*Schooling + 52.37
+
+-   R-squared: 80.4%
+
+**Insight:**
+
+Social factors (2000 - 2010):
+
+-   Schooling improved significantly in low income countries, narrowing gaps.
+
+-   Income composition rose slightly; Europe remain top performer.
+
+Health factors:
+
+-   Random Forest accuracy: 89.05%
+
+-   HIV/AIDS, BMI, and Thinness 1-19 years, and Adult Mortality are the strongest predictors of continent health pattern.
+
+**Recommendations:**
+
+-   Focus on 5 keys factors: Schooling, Income Composition of Resources, BMI, Adult Mortality, and HIV/AIDS for efficient monitoring.
+
+-   Prioritize education & income policies to improve lifespan.
+
+-   Tailor Health program based on dominant risk factors to indicate countries group then have suitable develop strategies.
+
+# 6. REFERENCE LINK
+
+Data set: <https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who>
+
+Data for merging Continent: **world-data-2024 1.csv**
+
+Logo LifeSpan Initiative: Generated by Copilot
+
+Data Diagram: Created on Lucidchart
